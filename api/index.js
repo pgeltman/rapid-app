@@ -1,11 +1,20 @@
 //API V1
+import routes from './routes.json';
 
 class apiConnect {
   constructor(app) {
     this.app = app;
+    this.routes = routes;
   }
-  fun() {
-    console.log('🐒 🍌 🐒 🍌 🐒 🍌 🐒 🍌 🐒 🍌 🐒');
+  route1(req, res) {
+    let route = '🚗 🚗 🚗 ROUTE 1';
+    console.log(route);
+    res.send(route);
+  }
+  route2(req, res) {
+    let route = '🚙 🚙 🚙 ROUTE 2';
+    console.log(route);
+    res.send(route);
   }
 }
 export default apiConnect;

@@ -8,8 +8,13 @@ import apiConnect from './api';
 //make express app
 const app = express();
 
-//connect api
+//create api
 let api = new apiConnect(app);
+
+//use api to generate end points
+api.routes.map(route => {
+  eval('app.' + 'get' + "(route.endpoint, eval('api.' + route.callback));");
+});
 
 //set port
 let port = process.env.PORT;

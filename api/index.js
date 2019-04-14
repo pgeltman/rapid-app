@@ -18,15 +18,3 @@ class apiConnect {
   }
 }
 export default apiConnect;
-
-//ROUTES
-
-//Set API
-//let api = '/api/v1/';
-
-//COMPONENTS Endpoint
-//Component: getIssues
-//app.get('components/getIssues', async (req, res) => {
-//  issues = await jira.getIssues('');
-//  res.send(issues);
-//});

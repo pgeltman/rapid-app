@@ -13,7 +13,16 @@ let api = new apiConnect(app);
 
 //use api to generate end points
 api.routes.map(route => {
-  eval('app.' + 'get' + "(route.endpoint, eval('api.' + route.callback));");
+  eval(
+    'app.' +
+      route.requestType +
+      '("' +
+      route.endpoint +
+      '", ' +
+      'api.' +
+      route.callback +
+      ')'
+  );
 });
 
 //set port

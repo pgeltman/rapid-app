@@ -1,9 +1,11 @@
 //requirements
-console.log('❇️ launching server');
 
+//import colors from 'colors';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+console.log('❇️ launching server');
+
 import apiConnect from './api';
 
 //make express app

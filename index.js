@@ -1,4 +1,5 @@
 //requirements
+console.log('❇️ launching server');
 
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -7,23 +8,6 @@ import apiConnect from './api';
 
 //make express app
 const app = express();
-
-//create api
-let api = new apiConnect(app);
-
-//use api to generate end points
-api.routes.map(route => {
-  eval(
-    'app.' +
-      route.requestType +
-      '("' +
-      route.endpoint +
-      '", ' +
-      'api.' +
-      route.callback +
-      ')'
-  );
-});
 
 //set port
 let port = process.env.PORT;
@@ -38,8 +22,12 @@ app.use(bodyParser.json());
 //enable CORS
 app.use(cors());
 
-//Static
+//Serve Static Content
 app.use('/', express.static('static'));
 
+//Create api
+let api = new apiConnect(app);
+api.connect();
+
 //listen
-app.listen(port, () => console.log('👋 👋 👋 listening on port', port));
+app.listen(port, () => console.log('✅ listening on port', port));
